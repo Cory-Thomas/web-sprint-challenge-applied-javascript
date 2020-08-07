@@ -23,31 +23,10 @@
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
 
-
-
-
-// const topics = document.querySelector('.topics')
-
-// axios.get('https://lambda-times-api.herokuapp.com/topics')
-//     .then( response => {
-//         response.data['topics'].forEach( topic => {
-//             const tab = createTabs( topic )
-//             topics.appendChild(tab)
-//         })
-//     })
-//     .catch( error => {
-//         debugger;
-//         return console.log(error)
-//     })
-
 const cards = document.querySelector('.cards-container')
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then( response => {
-        // console.log(response)
-        // console.log(response.data['articles']['bootstrap'][0])
-        // console.log(response.data['articles'])
-
         response.data['articles']['bootstrap'].forEach( item => {
             const tabArticle = createCard( item )
             cards.appendChild(tabArticle)
@@ -68,12 +47,10 @@ axios.get('https://lambda-times-api.herokuapp.com/articles')
             const tabArticle = createCard( item )
             cards.appendChild(tabArticle)
         })
-
-        // response.data['articles']['bootstrap'][0].forEach( tab => {
-        //     console.log(tab[0])
-        //     tab.forEach( article => {
-        //         console.log(article)
-        //         const tabArticle = createCard( article )
+        
+        // response.data['articles'].forEach( item => {
+        //     item.forEach( item2 => {
+        //         const tabArticle = createCard( item2 )
         //         cards.appendChild(tabArticle)
         //     })
         // })

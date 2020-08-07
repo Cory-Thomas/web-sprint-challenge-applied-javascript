@@ -28,6 +28,7 @@ function createTabs( topicsArray ){
     const topic = document.createElement('div')
 
     topic.classList.add('tab')
+    topic.classList.add(`${topicsArray}`)
     topic.textContent = topicsArray
 
     return topic
