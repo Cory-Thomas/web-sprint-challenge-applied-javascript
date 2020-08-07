@@ -14,8 +14,10 @@ const topics = document.querySelector('.topics')
 
 axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then( response => {
-        const tab = createTabs( response )
-        topics.appendChild(tab)
+        response.data['topics'].forEach( topic => {
+            const tab = createTabs( topic )
+            topics.appendChild(tab)
+        })
     })
     .catch( error => {
         debugger;
@@ -26,7 +28,7 @@ function createTabs( topicsArray ){
     const topic = document.createElement('div')
 
     topic.classList.add('tab')
-    topic.textContent = topicsArray.data['topics']
+    topic.textContent = topicsArray
 
     return topic
 }
